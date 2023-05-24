@@ -17,17 +17,4 @@ public class Poster {
         this.genre = genre;
         this.id = id;
     }
-
-    public String getNameFilm() {
-        return nameFilm;
-    }
-
-    public String getGenre() {
-        return genre;
-    }
-
-    public int getId() {
-        return id;
-    }
-
 }

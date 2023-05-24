@@ -63,5 +63,13 @@ public class PosterRepoManagerTest {
 
         Assertions.assertArrayEquals(expected, actual);
     }
+    @Test
+    public void findLimitLastAddedPosterUnderMaxLenght() {
+        setup();
+        Poster[] expected = {poster7, poster4};
+        Poster[] actual = repo.findLimitLast(2);
+
+        Assertions.assertArrayEquals(expected, actual);
+    }
 }
 

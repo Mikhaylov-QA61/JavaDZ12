@@ -32,7 +32,7 @@ public class PosterRepoManager {
             if (resultLength > posters.length) {
                 resultLength = posters.length;
             } else {
-                this.resultLength = resultLength;
+                resultLength = resultLength;
             }
         } else {
             resultLength = 1;
