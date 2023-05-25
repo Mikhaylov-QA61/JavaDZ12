@@ -2,8 +2,16 @@ package netology;
 
 public class PosterRepoManager {
 
-    private int resultLength = 5;
+    private int limitLength;
     private Poster[] posters = new Poster[0];
+
+    public PosterRepoManager() {
+        this.limitLength = 5;
+    }
+
+    public PosterRepoManager(int limit) {
+        this.limitLength = limit;
+    }
 
     public void save(Poster poster) {
         Poster[] tmp = new Poster[posters.length + 1];
@@ -19,30 +27,16 @@ public class PosterRepoManager {
     }
 
     public Poster[] findLast() {
-        Poster[] all = findAll();
-        Poster[] reversed = new Poster[resultLength];
-        for (int i = 0; i < resultLength; i++) {
-            reversed[i] = all[all.length - 1 - i];
-        }
-        return reversed;
-    }
-
-    public Poster[] findLimitLast(int resultLength) {
-        if (resultLength > 0) {
-            if (resultLength > posters.length) {
-                resultLength = posters.length;
-            } else {
-                resultLength = resultLength;
-            }
+        int resultLength;
+        if (posters.length < limitLength) {
+            resultLength = posters.length;
         } else {
-            resultLength = 1;
+            resultLength = limitLength;
         }
-        Poster[] all = findAll();
         Poster[] reversed = new Poster[resultLength];
         for (int i = 0; i < resultLength; i++) {
-            reversed[i] = all[all.length - 1 - i];
+            reversed[i] = posters[posters.length - 1 - i];
         }
         return reversed;
     }
-
 }
